@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tambah Data Nilai Mata Kuliah</title>
+</head>
+<body>
+
+<h2>Form Tambah Data Nilai Mata Kuliah</h2>
+<form action="/submit_nilai" method="post">
+  
+  <label for="nama_matakuliah">Nama Mata Kuliah:</label><br>
+  <input type="text" id="nama_matakuliah" name="nama_matakuliah" required><br><br>
+  
+  <label for="nama_dosen">Nama Dosen:</label><br>
+  <input type="text" id="nama_dosen" name="nama_dosen" required><br><br>
+  
+  <label for="sks">SKS:</label><br>
+  <input type="number" id="sks" name="sks" min="1" max="4" required><br><br>
+  
+  <label for="nama_mahasiswa">Nama Mahasiswa:</label><br>
+  <input type="text" id="nama_mahasiswa" name="nama_mahasiswa" required><br><br>
+  
+  <label for="kehadiran">Jumlah Kehadiran:</label><br>
+  <input type="number" id="kehadiran" name="kehadiran" min="0" max="100" required><br><br>
+  
+  <label for="nilai_tugas">Nilai Tugas:</label><br>
+  <input type="number" id="nilai_tugas" name="nilai_tugas" min="0" max="100" required><br><br>
+  
+  <label for="nilai_quiz">Nilai Quiz:</label><br>
+  <input type="number" id="nilai_quiz" name="nilai_quiz" min="0" max="100" required><br><br>
+  
+  <label for="nilai_uts">Nilai UTS:</label><br>
+  <input type="number" id="nilai_uts" name="nilai_uts" min="0" max="100" required><br><br>
+  
+  <label for="nilai_uas">Nilai UAS:</label><br>
+  <input type="number" id="nilai_uas" name="nilai_uas" min="0" max="100" required><br><br>
+  
+  <label for="nilai_akhir">Nilai Akhir:</label><br>
+  <input type="number" id="nilai_akhir" name="nilai_akhir" min="0" max="100" required><br><br>
+  
+  <label>Nilai Huruf:</label><br>
+  <input type="radio" id="nilai_a" name="nilai_huruf" value="A" required>
+  <label for="nilai_a">A</label><br>
+  <input type="radio" id="nilai_b" name="nilai_huruf" value="B">
+  <label for="nilai_b">B</label><br>
+  <input type="radio" id="nilai_c" name="nilai_huruf" value="C">
+  <label for="nilai_c">C</label><br>
+  <input type="radio" id="nilai_d" name="nilai_huruf" value="D">
+  <label for="nilai_d">D</label><br>
+  <input type="radio" id="nilai_e" name="nilai_huruf" value="E">
+  <label for="nilai_e">E</label><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

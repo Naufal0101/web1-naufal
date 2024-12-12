@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Tambahan Data</title>
+  <script>
+    function validateForm() {
+      const namaKamar = document.getElementById('namaKamar').value;
+      const harga = document.getElementById('harga').value;
+      const fasilitas = document.getElementById('fasilitas').value;
+
+      if (!namaKamar || namaKamar.trim() === '') {
+        alert('Nama kamar harus diisi!');
+        return false;
+      }
+
+      if (!harga || isNaN(harga) || parseInt(harga) <= 0) {
+        alert('Harga harus berupa angka positif!');
+        return false;
+      }
+
+      if (!fasilitas || fasilitas.trim() === '') {
+        alert('Fasilitas harus diisi!');
+        return false;
+      }
+
+      alert('Data berhasil disimpan!');
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <h2>Form Tambahan Data Kamar dan Fasilitas</h2>
+  <form onsubmit="return validateForm();">
+    <label for="namaKamar">Nama Kamar:</label>
+    <input type="text" id="namaKamar" required><br><br>
+    <label for="harga">Harga (Rp):</label>
+    <input type="text" id="harga" required><br><br>
+    <label for="fasilitas">Fasilitas:</label>
+    <textarea id="fasilitas" required></textarea><br><br>
+    <button type="submit">Simpan Data</button>
+  </form>
+</body>
+</html>

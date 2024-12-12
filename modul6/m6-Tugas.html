@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+        }
+        .checkbox-label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Form Pemesanan</h2>
+        <form id="bookingForm">
+            <label for="orderId">ID Pemesanan</label>
+            <input type="text" id="orderId" placeholder="Masukkan ID Pemesanan" required>
+
+            <label for="name">Nama Pemesan</label>
+            <input type="text" id="name" required>
+
+            <label>Jenis Kelamin</label>
+            <select id="gender" required>
+                <option value="">Pilih</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+
+            <label for="idNumber">Nomor Identitas</label>
+            <input type="text" id="idNumber" maxlength="16" pattern="\d{16}" required placeholder="Masukkan 16 digit angka">
+
+            <label>Tipe Kamar</label>
+            <select id="roomType" required>
+                <option value="">Pilih</option>
+                <option value="Standar" data-price="300000">Standar (Rp300.000/malam)</option>
+                <option value="Deluxe" data-price="500000">Deluxe (Rp500.000/malam)</option>
+                <option value="Family" data-price="800000">Family (Rp800.000/malam)</option>
+            </select>
+
+            <label for="stayDuration">Durasi Menginap (malam)</label>
+            <input type="number" id="stayDuration" min="1" required>
+
+            <label for="startDate">Tanggal Pesan</label>
+            <input type="date" id="startDate" required>
+
+            <div>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="breakfastIncluded"> Termasuk Breakfast (+Rp80.000/malam)
+                </label>
+            </div>
+
+            <button type="button" id="submitButton">Simpan</button>
+        </form>
+
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#submitButton').click(function() {
+                // Ambil input data
+                const name = $('#name').val();
+                const gender = $('#gender').val();
+                const idNumber = $('#idNumber').val();
+                const roomType = $('#roomType');
+                const roomPrice = parseInt(roomType.find('option:selected').data('price'));
+                const stayDuration = parseInt($('#stayDuration').val());
+                const startDate = $('#startDate').val();
+                const breakfastIncluded = $('#breakfastIncluded').prop('checked');
+
+                if (!name || !gender || !idNumber || !roomPrice || !stayDuration || !startDate) {
+                    alert("Harap lengkapi semua data!");
+                    return;
+                }
+
+                // Hitung biaya
+                let totalPrice = roomPrice * stayDuration;
+                let discount = 0;
+
+                // Diskon 10% jika menginap lebih dari 3 hari
+                if (stayDuration > 3) {
+                    discount = 0.1 * totalPrice;
+                }
+
+                // Tambahkan biaya breakfast jika dipilih
+                const breakfastCost = breakfastIncluded ? 80000 * stayDuration : 0;
+
+                // Total bayar
+                const finalPrice = totalPrice - discount + breakfastCost;
+
+                // Tampilkan hasil (tanpa ID Pemesanan)
+                $('#result').html(`
+                    <h3>Hasil Pemesanan</h3>
+                    <p><strong>Nama Pemesan:</strong> ${name}</p>
+                    <p><strong>Jenis Kelamin:</strong> ${gender}</p>
+                    <p><strong>Nomor Identitas:</strong> ${idNumber}</p>
+                    <p><strong>Tipe Kamar:</strong> ${roomType.val()}</p>
+                    <p><strong>Harga per Malam:</strong> Rp${roomPrice.toLocaleString()}</p>
+                    <p><strong>Durasi Menginap:</strong> ${stayDuration} malam</p>
+                    <p><strong>Diskon:</strong> Rp${discount.toLocaleString()}</p>
+                    <p><strong>Biaya Breakfast:</strong> Rp${breakfastCost.toLocaleString()}</p>
+                    <p><strong>Total Bayar:</strong> Rp${finalPrice.toLocaleString()}</p>
+                `);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+/*stylePostes*/
+.container {
+    width: 500px;
+    border: 1px solid #000;
+    padding: 20px;
+    display: flex;
+}
+
+.image {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #000;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    flex: 1;
+}
+
+.title {
+    height: 30px;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.excerpt {
+    height: 80px;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.read-more {
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    color: #007bff;
+}

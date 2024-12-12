@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menampilkan dan Menyembunyikan Gambar</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        img {
+            max-width: 300px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Menampilkan dan Menyembunyikan Gambar dengan jQuery</h1>
+    <button id="toggleButton">Tampilkan/Sembunyikan Gambar</button>
+    <br>
+    <img id="myImage" src="https://i.pinimg.com/736x/24/ac/7b/24ac7b5c6270fc911a27d0798ff4615b.jpg" alt="Contoh Gambar">
+
+    <script>
+        $(document).ready(function() {
+            // Menangani klik pada tombol
+            $("#toggleButton").click(function() {
+                // Menampilkan atau menyembunyikan gambar
+                $("#myImage").toggle();
+            });
+        });
+    </script>
+</body>
+</html>
+

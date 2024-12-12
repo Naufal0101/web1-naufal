@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+</head>
+<body>
+    <table border="0" cellpadding="8" cellspacing="0" style="width: 400px; margin: 20px auto; background-color: #f7f7f7;">
+        <tr>
+            <td colspan="2" align="center">
+                <h3>Form Pemesanan</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>Id Pemesanan:</td>
+            <td><input type="text" value="1" readonly style="width: 100%;"></td>
+        </tr>
+        <tr>
+            <td>Nama Pemesan:</td>
+            <td><input type="text" style="width: 100%;"></td>
+        </tr>
+        <tr>
+            <td>Nomor Identitas:</td>
+            <td><input type="text" style="width: 100%;"></td>
+        </tr>
+        <tr>
+            <td>Tipe Kamar:</td>
+            <td>
+                <select style="width: 100%;">
+                    <option value="">--Pilih--</option>
+                    <option value="standar">STANDAR</option>
+                    <option value="deluxe">DELUXE</option>
+                    <option value="family">FAMILY</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Harga:</td>
+            <td><input type="text" style="width: 100%;"></td>
+        </tr>
+        <tr>
+            <td>Tanggal Pesan:</td>
+            <td><input type="date" style="width: 100%;"></td>
+        </tr>
+        <tr>
+            <td>Durasi Menginap (Hari):</td>
+            <td><input type="number" style="width: 100%;"></td>
+        </tr>
+        <tr>
+            <td>Termasuk Breakfast:</td>
+            <td><input type="checkbox"> Ya</td>
+        </tr>
+        <tr>
+            <td>Total Bayar:</td>
+            <td><input type="text" readonly style="width: 100%;"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button style="background-color: #007bff; color: white; padding: 8px 16px; border: none;">Simpan</button>
+                <button style="background-color: #f0ad4e; color: white; padding: 8px 16px; border: none; margin-left: 10px;">Batal</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
